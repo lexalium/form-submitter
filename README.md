@@ -1,7 +1,8 @@
 # Form Submitter
 
 With this package you can submit a form entity, e.g. save it into the
-database. The package can be used with the [Stepped Form]() package on
+database. The package can be used with the
+[Stepped Form](https://github.com/alexxxxkkk/stepped-form) package on
 FormFinished event.
 
 ## Requirements
