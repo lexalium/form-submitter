@@ -1,0 +1,38 @@
+{
+    "name": "lexal/form-submitter",
+    "description": "Form submitter",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Lex",
+            "email": "allapkov@gmail.com"
+        }
+    ],
+    "keywords": [
+        "form submitter",
+        "stepped form submitter"
+    ],
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "phpstan/phpstan": "^1.2",
+        "phpunit/phpunit": "^9.5",
+        "roave/security-advisories": "dev-latest",
+        "webimpress/coding-standard": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lexal\\FormSubmitter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Lexal\\FormSubmitter\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
