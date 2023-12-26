@@ -7,7 +7,7 @@ With this package you can submit a form entity, e.g. save it into the database. 
 
 ## Requirements
 
-**PHP:** >=8.0
+**PHP:** >=8.1
 
 ## Installation
 
