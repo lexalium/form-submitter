@@ -7,11 +7,11 @@ namespace Lexal\FormSubmitter;
 use Lexal\FormSubmitter\Transaction\TransactionInterface;
 use Throwable;
 
-class TransactionalFormSubmitter implements FormSubmitterInterface
+final class TransactionalFormSubmitter implements FormSubmitterInterface
 {
     public function __construct(
-        private FormSubmitterInterface $formSubmitter,
-        private TransactionInterface $transaction,
+        private readonly FormSubmitterInterface $formSubmitter,
+        private readonly TransactionInterface $transaction,
     ) {
     }
 
