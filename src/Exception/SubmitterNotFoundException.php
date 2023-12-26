@@ -7,7 +7,7 @@ namespace Lexal\FormSubmitter\Exception;
 use function get_debug_type;
 use function sprintf;
 
-class SubmitterNotFoundException extends FormSubmitterException
+final class SubmitterNotFoundException extends FormSubmitterException
 {
     public function __construct(mixed $entity)
     {

@@ -8,12 +8,12 @@ use Lexal\FormSubmitter\Exception\SubmitterNotFoundException;
 
 use function array_unshift;
 
-class FormSubmitter implements FormSubmitterInterface
+final class FormSubmitter implements FormSubmitterInterface
 {
     /**
      * @var FormSubmitterInterface[] $submitters
      */
-    private array $submitters;
+    private readonly array $submitters;
 
     public function __construct(FormSubmitterInterface $submitter, FormSubmitterInterface ...$submitters)
     {

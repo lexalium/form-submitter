@@ -11,12 +11,23 @@ use Lexal\FormSubmitter\TransactionalFormSubmitter;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-class TransactionalFormSubmitterTest extends TestCase
+final class TransactionalFormSubmitterTest extends TestCase
 {
     private MockObject $transaction;
     private MockObject $formSubmitter;
 
     private FormSubmitterInterface $transactionalFormSubmitter;
+
+    protected function setUp(): void
+    {
+        $this->transaction = $this->createMock(TransactionInterface::class);
+        $this->formSubmitter = $this->createMock(FormSubmitterInterface::class);
+
+        $this->transactionalFormSubmitter = new TransactionalFormSubmitter(
+            $this->formSubmitter,
+            $this->transaction,
+        );
+    }
 
     public function testSubmit(): void
     {
@@ -57,18 +68,5 @@ class TransactionalFormSubmitterTest extends TestCase
             ->willThrowException(new Exception('Test message'));
 
         $this->transactionalFormSubmitter->submit('test');
-    }
-
-    protected function setUp(): void
-    {
-        $this->transaction = $this->createMock(TransactionInterface::class);
-        $this->formSubmitter = $this->createMock(FormSubmitterInterface::class);
-
-        $this->transactionalFormSubmitter = new TransactionalFormSubmitter(
-            $this->formSubmitter,
-            $this->transaction,
-        );
-
-        parent::setUp();
     }
 }

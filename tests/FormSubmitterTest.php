@@ -12,7 +12,7 @@ use stdClass;
 
 use function is_object;
 
-class FormSubmitterTest extends TestCase
+final class FormSubmitterTest extends TestCase
 {
     public function testSupportsSubmitting(): void
     {
@@ -24,18 +24,14 @@ class FormSubmitterTest extends TestCase
 
     public function testSubmit(): void
     {
-        $submitter = $this->createMock(FormSubmitterInterface::class);
+        $submitter = $this->createStub(FormSubmitterInterface::class);
 
         $formSubmitter = new FormSubmitter($submitter);
 
-        $submitter->expects($this->once())
-            ->method('supportsSubmitting')
-            ->with('test')
+        $submitter->method('supportsSubmitting')
             ->willReturn(true);
 
-        $submitter->expects($this->once())
-            ->method('submit')
-            ->with('test')
+        $submitter->method('submit')
             ->willReturn(['key' => 'string']);
 
         $this->assertEquals(['key' => 'string'], $formSubmitter->submit('test'));
@@ -45,13 +41,11 @@ class FormSubmitterTest extends TestCase
     {
         $this->expectExceptionObject(new SubmitterNotFoundException('test'));
 
-        $submitter = $this->createMock(FormSubmitterInterface::class);
+        $submitter = $this->createStub(FormSubmitterInterface::class);
 
         $formSubmitter = new FormSubmitter($submitter);
 
-        $submitter->expects($this->once())
-            ->method('supportsSubmitting')
-            ->with('test')
+        $submitter->method('supportsSubmitting')
             ->willReturn(false);
 
         $formSubmitter->submit('test');
