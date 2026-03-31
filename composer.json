@@ -18,7 +18,7 @@
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
         "phpstan/phpstan": "^1.10",
-        "phpunit/phpunit": "^10.5",
+        "phpunit/phpunit": "^10.5.62",
         "roave/security-advisories": "dev-latest",
         "webimpress/coding-standard": "^1.3"
     },
